@@ -13,7 +13,7 @@ This screen includes:
 
 ## 📸 Screenshot
 
-![UI Screenshot](sandbox:/mnt/data/Screenshot%202025-11-24%20213212.png)
+![Image](https://github.com/user-attachments/assets/3e45d0e2-3b0c-4af8-ad3e-63e203b8847e)
 
 ---
 
