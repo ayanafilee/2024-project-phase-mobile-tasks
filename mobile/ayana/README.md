@@ -1,16 +1,26 @@
-# flutter_application_1
+# Product Detail UI (Flutter)
 
-A new Flutter project.
+A simple Flutter implementation of a product detail screen based on the provided design reference.  
+This screen includes:
+- Product image with rounded card
+- Back button
+- Product title, rating, and price
+- Selectable shoe sizes
+- Description section
+- Delete & Update action buttons
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshot
 
-A few resources to get you started if this is your first Flutter project:
+![Image](https://github.com/user-attachments/assets/3e45d0e2-3b0c-4af8-ad3e-63e203b8847e)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Getting Started
+
+1. Clone the project  
+2. Run `flutter pub get`  
+3. Launch the app with:  
+   ```sh
+   flutter run
