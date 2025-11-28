@@ -1,16 +1,50 @@
-# flutter_application_1
 
-A new Flutter project.
+# 🛒 Flutter E-commerce Navigation Demo
 
-## Getting Started
+A simple Flutter app that demonstrates:
 
-This project is a starting point for a Flutter application.
+* Named route navigation
+* Passing data between screens
+* Add/Edit product form
+* Product detail page
+* Custom page transition animations
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* View product list
+* Add new product
+* Edit existing product
+* Delete product
+* Navigate to details screen
+* Smooth slide transition animation
+
+
+
+---
+
+## ▶️ How to Run
+
+Make sure Flutter is installed:
+
+```sh
+flutter pub get
+flutter run
+```
+
+---
+
+## 📸 Screens Included
+
+
+
+---
+
+## 📜 License
+
+This project is for learning and demo purposes.
+
+---
+
+If you want, I can also generate a **more advanced README with badges, images, setup steps, or GIF previews**.
