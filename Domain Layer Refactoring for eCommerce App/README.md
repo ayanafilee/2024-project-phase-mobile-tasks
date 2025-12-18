@@ -1,51 +1,43 @@
-
-# 🛒 Flutter E-commerce Navigation Demo
+# 🛒 Flutter E-commerce Product Management Demo
 
 A simple Flutter app that demonstrates:
 
+* **Clean Architecture (DDD):** Clear separation into Domain, Data, and Presentation layers.
 * Named route navigation
 * Passing data between screens
-* Add/Edit product form
-* Product detail page
+* Add/Edit product form with validation
+* **Local Image Assets:** Displays product images loaded directly from the `assets/images` folder.
 * Custom page transition animations
 
 ---
 
 ## 🚀 Features
 
-* View product list
-* Add new product
-* Edit existing product
-* Delete product
-* Navigate to details screen
+* View product list using `ViewAllProductsUsecase`
+* Add new product using `CreateProductUsecase`
+* Edit existing product using `UpdateProductUsecase`
+* Delete product using `DeleteProductUsecase`
 * Smooth slide transition animation
 
+---
 
+## 📸 Screenshots
+
+![photo_2025-12-04_21-58-07](https://github.com/user-attachments/assets/632aaac2-2d5e-412e-9c92-ad9b57c768af)
+
+![photo_2025-12-04_21-57-56](https://github.com/user-attachments/assets/d5de6f0b-0d63-420c-a4cd-292a6f9b656d)
 
 ---
 
 ## ▶️ How to Run
 
-Make sure Flutter is installed:
+### Setup Assets
 
-```sh
-flutter pub get
-flutter run
-```
+1.  Create the folder: **`assets/images/`** in the project root.
+2.  Place your image files (e.g., `gaming_laptop.jpg`) inside this folder.
+3.  Ensure the folder is registered in `pubspec.yaml`:
 
----
-
-## 📸 Screens Included
-
-![Image](https://github.com/user-attachments/assets/c291f64d-c083-4377-ade3-a12bbbe85409)
-![Image](https://github.com/user-attachments/assets/1440e615-c835-4c15-94dc-9c3db2b6bc14)
-
----
-
-## 📜 License
-
-This project is for learning and demo purposes.
-
----
-
-If you want, I can also generate a **more advanced README with badges, images, setup steps, or GIF previews**.
+```yaml
+flutter:
+  assets:
+    - assets/images/
