@@ -1,51 +1,109 @@
+# Flutter E-Commerce App (Clean Architecture)
 
-# 🛒 Flutter E-commerce Navigation Demo
+## 📌 Project Overview
 
-A simple Flutter app that demonstrates:
+This project is a simple E-Commerce mobile application built using **Flutter** and structured according to **Clean Architecture principles**.  
+It demonstrates proper separation of concerns, CRUD operations, and Test-Driven Development (TDD) readiness.
 
-* Named route navigation
-* Passing data between screens
-* Add/Edit product form
-* Product detail page
-* Custom page transition animations
-
----
-
-## 🚀 Features
-
-* View product list
-* Add new product
-* Edit existing product
-* Delete product
-* Navigate to details screen
-* Smooth slide transition animation
-
-
+The application allows users to:
+- Create products
+- View product details
+- Update existing products
+- Delete products
 
 ---
 
-## ▶️ How to Run
+## 🧱 Architecture Overview
 
-Make sure Flutter is installed:
+The project follows **Clean Architecture**, divided into three main layers:
 
-```sh
-flutter pub get
-flutter run
-```
+### 1. Domain Layer
+Contains the core business logic of the application.
+- **Entities**: Business objects (e.g., Product)
+- **Use Cases**: Application-specific business rules
+- **Repositories (abstract)**: Contracts for data access
 
----
+### 2. Data Layer
+Responsible for data handling and repository implementation.
+- In-memory data storage (can be replaced with API or database)
 
-## 📸 Screens Included
-
-![Image](https://github.com/user-attachments/assets/c291f64d-c083-4377-ade3-a12bbbe85409)
-![Image](https://github.com/user-attachments/assets/1440e615-c835-4c15-94dc-9c3db2b6bc14)
-
----
-
-## 📜 License
-
-This project is for learning and demo purposes.
+### 3. Presentation Layer
+Contains the UI built with Flutter widgets.
+- Screens
+- Navigation
+- User interactions
 
 ---
 
-If you want, I can also generate a **more advanced README with badges, images, setup steps, or GIF previews**.
+## 📁 Folder Structure
+
+
+
+lib/
+├── features/
+│ └── product/
+│ ├── domain/
+│ │ ├── entities/
+│ │ ├── repositories/
+│ │ └── usecases/
+│ ├── data/
+│ │ └── repositories/
+│ └── presentation/
+│ └── screens/
+├── main.dart
+
+
+---
+
+## 🧩 Product Entity
+
+The `Product` entity contains the following properties:
+- `id`
+- `name`
+- `description`
+- `price`
+- `imageUrl`
+
+---
+
+## 🔄 Use Cases (CRUD)
+
+The application supports the following use cases:
+- **InsertProduct** – Add a new product
+- **UpdateProduct** – Update an existing product
+- **DeleteProduct** – Remove a product
+- **GetProduct** – Retrieve product details
+
+Each use case has a single responsibility and interacts only with the repository abstraction.
+
+---
+
+## 🗄 Repository Pattern
+
+- `ProductRepository` defines the contract for data operations.
+- `ProductRepositoryImpl` provides an in-memory implementation.
+- This allows easy replacement with REST API, Firebase, or local database.
+
+---
+
+## 🧪 Test-Driven Development (TDD)
+
+The project is designed to support TDD:
+- Business logic is isolated and testable
+- Use cases can be unit tested independently
+- Repositories can be mocked in tests
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK
+- Dart
+
+
+
+
+
+
+
