@@ -11,60 +11,97 @@ A simple Flutter app that demonstrates:
 
 ---
 
-## 🏛️ Architecture
+## 🧱 Architecture Overview
 
-This project follows the **Clean Architecture** pattern to separate concerns and create a maintainable and scalable application. The architecture is divided into three main layers:
+The project follows **Clean Architecture**, divided into three main layers:
 
-*   **Domain Layer**: This is the core of the application. It contains the business logic and entities. It is independent of any other layer.
-*   **Data Layer**: This layer is responsible for retrieving data from one or more sources (like a REST API or a local database). It implements the repositories defined in the domain layer.
-*   **Presentation Layer**: This is the UI layer of the application. It contains the widgets and the state management logic. It depends on the domain layer to get the data to display.
+### 1. Domain Layer
+Contains the core business logic of the application.
+- **Entities**: Business objects (e.g., Product)
+- **Use Cases**: Application-specific business rules
+- **Repositories (abstract)**: Contracts for data access
 
-### Data Flow
+### 2. Data Layer
+Responsible for data handling and repository implementation.
+- In-memory data storage (can be replaced with API or database)
 
-The data flows from the Data Layer to the Presentation Layer through the Domain Layer.
-
-1.  The **Presentation Layer** (UI) requests data from a **UseCase** in the Domain Layer.
-2.  The **UseCase** gets the data from a **Repository** in the Domain Layer.
-3.  The **Data Layer** has an implementation of the **Repository** that gets the data from a remote or local **DataSource**.
-4.  The data is returned to the **Presentation Layer** and displayed on the screen.
-
----
-
-## 🚀 Features
-
-* View product list
-* Add new product
-* Edit existing product
-* Delete product
-* Navigate to details screen
-* Smooth slide transition animation
-
-
+### 3. Presentation Layer
+Contains the UI built with Flutter widgets.
+- Screens
+- Navigation
+- User interactions
 
 ---
 
-## ▶️ How to Run
+## 📁 Folder Structure
 
-Make sure Flutter is installed:
 
-```sh
-flutter pub get
-flutter run
-```
 
----
+lib/
+├── features/
+│ └── product/
+│ ├── domain/
+│ │ ├── entities/
+│ │ ├── repositories/
+│ │ └── usecases/
+│ ├── data/
+│ │ └── repositories/
+│ └── presentation/
+│ └── screens/
+├── main.dart
 
-## 📸 Screens Included
-
-![Image](https://github.com/user-attachments/assets/c291f64d-c083-4377-ade3-a12bbbe85409)
-![Image](https://github.com/user-attachments/assets/1440e615-c835-4c15-94dc-9c3db2b6bc14)
-
----
-
-## 📜 License
-
-This project is for learning and demo purposes.
 
 ---
 
-If you want, I can also generate a **more advanced README with badges, images, setup steps, or GIF previews**.
+## 🧩 Product Entity
+
+The `Product` entity contains the following properties:
+- `id`
+- `name`
+- `description`
+- `price`
+- `imageUrl`
+
+---
+
+## 🔄 Use Cases (CRUD)
+
+The application supports the following use cases:
+- **InsertProduct** – Add a new product
+- **UpdateProduct** – Update an existing product
+- **DeleteProduct** – Remove a product
+- **GetProduct** – Retrieve product details
+
+Each use case has a single responsibility and interacts only with the repository abstraction.
+
+---
+
+## 🗄 Repository Pattern
+
+- `ProductRepository` defines the contract for data operations.
+- `ProductRepositoryImpl` provides an in-memory implementation.
+- This allows easy replacement with REST API, Firebase, or local database.
+
+---
+
+## 🧪 Test-Driven Development (TDD)
+
+The project is designed to support TDD:
+- Business logic is isolated and testable
+- Use cases can be unit tested independently
+- Repositories can be mocked in tests
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK
+- Dart
+
+
+
+
+
+
+
