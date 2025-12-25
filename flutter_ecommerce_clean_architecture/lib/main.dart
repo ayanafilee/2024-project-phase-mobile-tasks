@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // ===== CLEAN ARCHITECTURE IMPORTS =====
 import 'features/product/domain/entities/product.dart';
+import 'features/product/domain/usecases/get_products.dart';
 import 'features/product/domain/usecases/insert_product.dart';
 import 'features/product/domain/usecases/update_product.dart';
 import 'features/product/domain/usecases/delete_product.dart';
@@ -68,19 +69,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late final GetProducts getProducts;
   late final InsertProduct insertProduct;
   late final UpdateProduct updateProduct;
   late final DeleteProduct deleteProduct;
 
-  final List<Product> _products = [];
+  List<Product> _products = [];
 
   @override
   void initState() {
     super.initState();
+    getProducts = GetProducts(widget.repository);
     insertProduct = InsertProduct(widget.repository);
     updateProduct = UpdateProduct(widget.repository);
     deleteProduct = DeleteProduct(widget.repository);
+    _loadProducts();
   }
+
+  Future<void> _loadProducts() async {
+    final products = await getProducts();
+    setState(() {
+      _products = products;
+    });
+  }
+
 
   Future<void> _navigateToAddEdit({Product? product, int? index}) async {
     final result = await Navigator.pushNamed(
@@ -92,20 +104,16 @@ class _HomeScreenState extends State<HomeScreen> {
     if (result != null && result is Product) {
       if (index == null) {
         await insertProduct(result);
-        _products.add(result);
       } else {
         await updateProduct(result);
-        _products[index] = result;
       }
-
-      setState(() {});
+      _loadProducts();
     }
   }
 
   Future<void> _delete(int index) async {
     await deleteProduct(_products[index].id);
-    _products.removeAt(index);
-    setState(() {});
+    _loadProducts();
   }
 
   @override

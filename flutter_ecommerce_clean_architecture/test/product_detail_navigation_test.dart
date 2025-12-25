@@ -1,9 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_application_1/main.dart'; // update import to your project name
+import 'package:flutter_application_1/features/product/data/repositories/product_repository_impl.dart';
 
 void main() {
   testWidgets('Navigate to detail page and back', (tester) async {
-    await tester.pumpWidget(const EcommerceApp());
+    await tester.pumpWidget(EcommerceApp(repository: ProductRepositoryImpl()));
     await tester.pumpAndSettle();
 
     // Tap the first product "Laptop"

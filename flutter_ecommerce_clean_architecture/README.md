@@ -11,6 +11,25 @@ A simple Flutter app that demonstrates:
 
 ---
 
+## 🏛️ Architecture
+
+This project follows the **Clean Architecture** pattern to separate concerns and create a maintainable and scalable application. The architecture is divided into three main layers:
+
+*   **Domain Layer**: This is the core of the application. It contains the business logic and entities. It is independent of any other layer.
+*   **Data Layer**: This layer is responsible for retrieving data from one or more sources (like a REST API or a local database). It implements the repositories defined in the domain layer.
+*   **Presentation Layer**: This is the UI layer of the application. It contains the widgets and the state management logic. It depends on the domain layer to get the data to display.
+
+### Data Flow
+
+The data flows from the Data Layer to the Presentation Layer through the Domain Layer.
+
+1.  The **Presentation Layer** (UI) requests data from a **UseCase** in the Domain Layer.
+2.  The **UseCase** gets the data from a **Repository** in the Domain Layer.
+3.  The **Data Layer** has an implementation of the **Repository** that gets the data from a remote or local **DataSource**.
+4.  The data is returned to the **Presentation Layer** and displayed on the screen.
+
+---
+
 ## 🚀 Features
 
 * View product list
